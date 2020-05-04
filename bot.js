@@ -1,7 +1,7 @@
 var Discord = require('discord.js');
 var logger = require('winston');
 var bot = new Discord.Client({
-   process.env.BOT_TOKEN,
+   token: process.env.BOT_TOKEN,
    autorun: true
 });
 
