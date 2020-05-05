@@ -1,44 +1,52 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const client = new Discord.Client();
 
 var enabled = true;
 
-client.on('ready', () => {
+client.on("ready", () => {
 
-    console.log('Ready');
+    console.log("Ready");
 
 });
 
  
 
-client.on('message', message => {
+client.on("message", message => {
  
- if(message.channel.type === 'dm' && message.author.id === '338510413807353866')
+ if(message.channel.type === "dm" && message.author.id === "338510413807353866")
  {
-     if(message.content === 'off')
+     if(message.content === "off")
      {
         enabled = false;
-        message.channel.send('off');
+        message.channel.send("off");
      }
-     else if(message.content === 'on')
+     else if(message.content === "on")
      {
         enabled = true;
-        message.channel.send('on');
+        message.channel.send("on");
      }
   
  }
 
- if(enabled === true && Math.random() > 0.25){
-    if (message.author.id === '689560562513739957')//issa
+ if(enabled === true){
+    if (message.author.id === "689560562513739957")//issa
     {
        if(/\d{1}[%](.*?)/.test(message))
-       {
-            message.channel.send('bro ' + message.content.substring(0, message.content.indexOf('%') + 1) + '? that shit wack');
-       }
+		{
+		   var percentage = message.content.substring(0, message.content.indexOf("%"));
+		   var percentNum = parseInt(percentage);
+		   
+		   if(percentNum === 69)
+			   message.channel.send("69%? nice.");
+		   else if(percentNum < 50)
+			   percentageSelect(percentage, [	"{p}? you hella lowballin", 
+												"bro look at him there's no way he only {p}",
+												"{p}? u cappin."])
+		}
     }
-    else if (message.author.id === '707046570335535134')//assi
+    else if (message.author.id === "707046570335535134")//assi
     {
-       //message.channel.send('assi u cap');
+       //message.channel.send("assi u cap");
     }
  }
  
@@ -46,6 +54,23 @@ client.on('message', message => {
 
 function arraySelect(array) {
     return array[Math.round((Math.random()*(array.length)))];
+}
+
+function percentageSelect(percent, responses) {
+    var result;
+	var selected;
+	var responses = [	"bro {p}? thats wack",
+						"{}",
+						];
+	
+	selected = responses[Math.round(Math.random()*responses.length))];
+	var array = selected.split("{p}");
+	result += array[0];
+	for(var i = 1; i < array.length; i++)
+	{
+		result += percent + "%";
+		result += array[i];
+	}
 }
 
 
