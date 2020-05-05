@@ -129,12 +129,12 @@ function image(message, search) {
         var urls = new Array(links.length).fill(0).map((v, i) => links.eq(i).attr("href"));
         console.log(urls[0]);
         if (!urls.length) {
-            // Handle no results
+            message.channel.send(search);
             return;
         }
  
         // Send result
-		message.channel.send(search, {files: [urls[0]]}).then(console.log).catch(console.error);
+		message.channel.send(search, {files: [urls[0]]}).catch(console.error);
     });
 }
 
