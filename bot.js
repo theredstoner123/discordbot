@@ -41,8 +41,8 @@ client.on("message", message => {
 			else if(percentNum < 50)
 				message.channel.send(percentageSelect(percentage, [	"{p}? you hella lowballin", 
 																	"bro look at him no way he only {p} cappin",
-																	"{p}? u cappin.",
-																	""]));
+																	"{p}? u cappin."
+																	]));
 			else 
 				message.channel.send("nah");
 		}
