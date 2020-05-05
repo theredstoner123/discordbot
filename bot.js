@@ -55,7 +55,7 @@ client.on("message", message => {
 		message.channel.send("nah nigga");
     }
 	
-	if (!message.author.bot && Math.random() < 0.25)
+	if (!message.author.bot && Math.random() < 1.00)
 	{
 		var string = message.content;
 		var response = "";
