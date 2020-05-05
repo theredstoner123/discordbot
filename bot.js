@@ -134,7 +134,7 @@ function image(message, search) {
         }
  
         // Send result
-		message.channel.send(new MessageAttachment(urls[0]) ).catch(console.error);
+		message.channel.send(new MessageAttachment(urls[0]))
     });
 }
 
