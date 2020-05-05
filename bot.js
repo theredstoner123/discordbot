@@ -74,7 +74,7 @@ client.on("message", message => {
 				response += string[i];
 			}
 		}
-		//message.channel.send(response);
+		message.channel.send(response);
 		image(message, response)
 	}
  }
@@ -134,8 +134,7 @@ function image(message, search) {
         }
  
         // Send result
-		const attachment = new MessageAttachment(urls[0]);
-		message.channel.send(search, attachment);
+		message.channel.send(urls[0]);
     });
 }
 
