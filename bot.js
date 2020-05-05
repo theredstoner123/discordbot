@@ -6,6 +6,16 @@ const request = require("request");
 
 var enabled = true;
 
+
+client.user.setPresence({
+        status: "online",  //You can show online, idle....
+        game: {
+            name: "Big Boy",  //The message shown
+            type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
+        }
+    });
+
+
 client.on("ready", () => {
 
     console.log("Ready");
