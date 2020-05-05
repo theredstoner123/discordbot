@@ -135,7 +135,7 @@ function image(message, search) {
 		
 		var finalLink = urls[0];
 		
-		if(finalLink.indexOf(".jpg") !== -1) finalLink = finalLink.substring(0, finalLink.(".jpg") + 4);
+		if(finalLink.indexOf(".jpg") !== -1) finalLink = finalLink.substring(0, finalLink.indexOf(".jpg") + 4);
 		else if(finalLink.indexOf(".JPG") !== -1) finalLink = finalLink.substring(0, finalLink.indexOf(".JPG") + 4);
 		else if(finalLink.indexOf(".png") !== -1) finalLink = finalLink.substring(0, finalLink.indexOf(".jpg") + 4);
 		else if(finalLink.indexOf(".PNG") !== -1) finalLink = finalLink.substring(0, finalLink.indexOf(".PNG") + 4);
