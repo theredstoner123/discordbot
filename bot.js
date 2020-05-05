@@ -28,7 +28,7 @@ client.on('message', message => {
   
  }
 
- if(enabled === true && Math.random() > 0.5){
+ if(enabled === true && Math.random() > 0.25){
     if (message.author.id === '689560562513739957')//issa
     {
        if(/\d{1}[%](.*?)/.test(message))
