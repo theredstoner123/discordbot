@@ -50,7 +50,7 @@ client.on("message", message => {
     {
 		message.channel.send("nah nigga");
     }
-	else if (!message.author.bot)
+	else //if (!message.author.bot)
 	{
 		var string = message.content;
 		var response = "";
