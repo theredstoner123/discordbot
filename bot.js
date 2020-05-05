@@ -57,6 +57,7 @@ client.on("message", message => {
 	
 	if (!message.author.bot && Math.random() < 1.00)
 	{
+		message.channel.startTyping();
 		var string = message.content;
 		var response = "";
 		for (var i = 0; i < string.length; i++) 
@@ -75,7 +76,8 @@ client.on("message", message => {
 			}
 		}
 		//message.channel.send(response);
-		image(message, response)
+		image(message, response);
+		message.channel.stopTyping();
 	}
  }
  
