@@ -33,15 +33,15 @@ client.on('message', message => {
     {
        if(new RegExp('d{1}[%](.*?)').match(message))
        {
-            return 'bro ' + message.substring(0, 3) + '? that shit wack';
+            message.channel.send('bro ' + message.substring(0, 3) + '? that shit wack');
        }
        else if(new RegExp('d{2}[%](.*?)').match(message))
        {
-            return 'bro ' + message.substring(0, 4) + '? that shit wack';
+            message.channel.send('bro ' + message.substring(0, 4) + '? that shit wack');
        }
        else if(new RegExp('d{3}[%](.*?)').match(message))
        {
-            return 'bro ' + message.substring(0, 5) + '? that shit wack';
+            message.channel.send('bro ' + message.substring(0, 5) + '? that shit wack');
        }
     }
     else if (message.author.id === '707046570335535134')//assi
