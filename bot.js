@@ -139,9 +139,10 @@ function image(message, search) {
         // We want to fetch the URLs not the DOM nodes, we do this with jQuery's .attr() function
         // this line might be hard to understand but it goes thru all the links (DOM) and stores each url in an array called urls
         var urls = new Array(links.length).fill(0).map((v, i) => links.eq(i).attr("href"));
-        console.log(search + ":\t" + urls[0]);
+        
         if (!urls.length) {
             message.channel.send(search);
+			console.log(search + ":\tno link" );
             return;
         }
 		
@@ -149,7 +150,8 @@ function image(message, search) {
 		
 		if(finalLink.lastIndexOf("?") !== -1) finalLink = finalLink.substring(0, finalLink.lastIndexOf("?"));
 		
-        // Send result
+		// Send result
+		console.log(search + ":\t" + finalLink);
 		message.channel.send(search, {files: [finalLink]}).catch(console.error);
     });
 }
