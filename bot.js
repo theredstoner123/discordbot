@@ -36,12 +36,14 @@ client.on("message", message => {
 		   var percentage = message.content.substring(0, message.content.indexOf("%"));
 		   var percentNum = parseInt(percentage);
 		   
-		   if(percentNum === 69)
+			if(percentNum === 69)
 			   message.channel.send("69%? nice.");
-		   else if(percentNum < 50)
-			   message.channel.send(percentageSelect(percentage, [	"{p}? you hella lowballin", 
+			else if(percentNum < 50)
+				message.channel.send(percentageSelect(percentage, [	"{p}? you hella lowballin", 
 																	"bro look at him there's no way he only {p}",
 																	"{p}? u cappin."]));
+			else 
+				message.channel.send("nah");
 		}
     }
     else if (message.author.id === "707046570335535134")//assi
