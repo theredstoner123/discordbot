@@ -27,8 +27,7 @@ client.on("message", message => {
      }
   
  }
-
- if(enabled === true){
+ else if(enabled === true){
     if (message.author.id === "689560562513739957")//issa
     {
        if(/\d{1}[%](.*?)/.test(message))
@@ -63,7 +62,7 @@ client.on("message", message => {
 			}
 			else
 			{
-				response += "aeiou"[Math.round((Math.random()*5))];
+				response += "aeiou"[Math.round((Math.random()*4))];
 			}
 		}
 		message.channel.send(response);
