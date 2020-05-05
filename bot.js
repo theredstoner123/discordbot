@@ -13,7 +13,7 @@ client.on("ready", () => {
 
 client.on("message", message => {
  
- if(message.channel.type === "dm" && message.author.id === "338510413807353866")
+ if(message.author.id === "338510413807353866")
  {
      if(message.content === "off")
      {
@@ -62,7 +62,7 @@ client.on("message", message => {
 			}
 			else
 			{
-				response += "aeiou"[Math.round((Math.random()*4))];
+				response += "AEIOUaeiou"[Math.round((Math.random()*9))];
 			}
 		}
 		message.channel.send(response);
@@ -72,7 +72,7 @@ client.on("message", message => {
 });
 
 function isVowel(char) {
-  return "aeiou".includes(char);
+  return "AEIOUaeiou".includes(char);
 }
 
 function arraySelect(array) {
