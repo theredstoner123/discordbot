@@ -31,15 +31,15 @@ client.on('message', message => {
  if(enabled === true){
     if (message.author.id === '689560562513739957')//issa
     {
-       if(message.match(\d{1}[%](.*?)\))
+       if(/d{1}[%](.*?)/.test(message))
        {
             message.channel.send('bro ' + message.substring(0, 3) + '? that shit wack');
        }
-       else if(message.match(\d{2}[%](.*?)\))
+       else if(/d{2}[%](.*?)/.test(message))
        {
             message.channel.send('bro ' + message.substring(0, 4) + '? that shit wack');
        }
-       else if(message.match(\d{3}[%](.*?)\))
+       else if(/d{3}[%](.*?)/.test(message))
        {
             message.channel.send('bro ' + message.substring(0, 5) + '? that shit wack');
        }
