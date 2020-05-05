@@ -13,12 +13,14 @@ client.on('ready', () => {
 
 client.on('message', message => {
 
-    if (message.content === 'ping') {
-
-       message.channel.send('pong');
-
-       }
-
+    if (message.author.id === '689560562513739957')
+    {
+       message.channel.send('issa u cap');
+    }
+    else if (message.author.id === '707046570335535134')
+    {
+       message.channel.send('assi u cap');
+    }
 });
 
  
