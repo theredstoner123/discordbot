@@ -66,7 +66,7 @@ client.on("message", message => {
 				response += "aeiou"[Math.round((Math.random()*5))];
 			}
 		}
-		return response;
+		message.channel.send(response);
 	}
  }
  
