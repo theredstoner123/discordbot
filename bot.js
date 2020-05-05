@@ -50,17 +50,17 @@ client.on("message", message => {
     {
 		message.channel.send("nah nigga");
     }
-	else if (!message.author.bot)
+	else if (!message.author.bot && Math.random() < 0.25)
 	{
 		var string = message.content;
 		var response = "";
 		for (var i = 0; i < string.length; i++) 
 		{
-			if (isLowercaseVowel(string[i])) 
+			if ("aeiou".includes(string[i])) 
 			{
 				response += "aeiou"[Math.round((Math.random()*4))];
 			}
-			else if (isUppercaseVowel(string[i])) 
+			else if ("AEIOU".includes(string[i])) 
 			{
 				response += "AEIOU"[Math.round((Math.random()*4))];
 			}
@@ -74,14 +74,6 @@ client.on("message", message => {
  }
  
 });
-
-function isLowercaseVowel(char) {
-  return "aeiou".includes(char);
-}
-
-function isUppercaseVowel(char) {
-  return "AEIOU".includes(char);
-}
 
 function arraySelect(array) {
     return array[Math.round((Math.random()*(array.length)))];
@@ -106,4 +98,4 @@ function percentageSelect(percent, responses) {
 
 // THIS  MUST  BE  THIS  WAY
 
-client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
+client.login(process.env.BOT_TOKEN);
