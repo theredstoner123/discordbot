@@ -127,14 +127,14 @@ function image(message, search) {
         // We want to fetch the URLs not the DOM nodes, we do this with jQuery's .attr() function
         // this line might be hard to understand but it goes thru all the links (DOM) and stores each url in an array called urls
         var urls = new Array(links.length).fill(0).map((v, i) => links.eq(i).attr("href"));
-        console.log(urls);
+        //console.log(urls);
         if (!urls.length) {
             // Handle no results
             return;
         }
  
         // Send result
-		message.channel.send(new Discord.Attachment(urls[0], search) ).catch(console.error);
+		message.channel.send(new MessageAttachment(urls[0]) ).catch(console.error);
     });
 }
 
