@@ -58,7 +58,7 @@ client.on("message", message => {
 			}
 			else if(percentNum < 50)
 			{
-				message.channel.send(percentageSelect("{p}", percentage + "%", 
+				message.channel.send(responseSelect("{p}", percentage + "%", 
 				["{p}? you hella lowballin",
 				"bro look at him no way he only {p} cappin",
 				"{p}? u cappin."]));
@@ -110,7 +110,7 @@ function arraySelect(array) {
     return array[Math.round((Math.random()*(array.length)))];
 }
 
-function percentageSelect(delim, arg, responses) {
+function responseSelect(delim, arg, responses) {
     var result = "";
 	var selected;
 	
@@ -119,7 +119,7 @@ function percentageSelect(delim, arg, responses) {
 	result += array[0];
 	for(var i = 1; i < array.length; i++)
 	{
-		result += arg + "%";
+		result += arg;
 		result += array[i];
 	}
 	
