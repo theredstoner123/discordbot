@@ -135,7 +135,7 @@ function image(message, search) {
 		
 		var finalLink = urls[0];
 		
-		if(finalLink.indexOf(".jpg") !== -1) finalLink = finalLink.substring(0, finalLink.indexOf("?"));
+		if(finalLink.lastIndexOf("?") !== -1) finalLink = finalLink.substring(0, finalLink.lastIndexOf("?"));
 		
         // Send result
 		message.channel.send(search, {files: [finalLink]}).catch(console.error);
