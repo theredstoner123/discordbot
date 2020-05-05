@@ -59,13 +59,10 @@ function arraySelect(array) {
 }
 
 function percentageSelect(percent, responses) {
-    var result;
+    var result = "";
 	var selected;
-	var responses = [	"bro {p}? thats wack",
-						"{}",
-						];
 	
-	selected = responses[Math.round(Math.random()*responses.length)];
+	selected = responses[Math.round(Math.random()*(responses.length - 1))];
 	var array = selected.split("{p}");
 	result += array[0];
 	for(var i = 1; i < array.length; i++)
@@ -73,6 +70,8 @@ function percentageSelect(percent, responses) {
 		result += percent + "%";
 		result += array[i];
 	}
+	
+	return result;
 }
 
 
