@@ -134,7 +134,7 @@ function image(message, search) {
         }
  
         // Send result
-        message.channel.send(urls[0]);
+		message.channel.send(new Discord.Attachment(urls[0], search) ).catch(console.error);
     });
 }
 
