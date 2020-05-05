@@ -53,6 +53,7 @@ client.on("message", message => {
     }
 	else
 	{
+		var string = message.content;
 		var response = "";
 		for (var i = 0; i < string.length; i++) 
 		{
