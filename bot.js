@@ -49,11 +49,31 @@ client.on("message", message => {
     }
     else if (message.author.id === "707046570335535134")//assi
     {
-       //message.channel.send("assi u cap");
+		message.channel.send("nah nigga");
     }
+	else
+	{
+		var response = "";
+		for (var i = 0; i < string.length; i++) 
+		{
+			if (!isVowel(string[i])) 
+			{
+				response += string[i];
+			}
+			else
+			{
+				response += "aeiou"[Math.round((Math.random()*5))];
+			}
+		}
+		return response;
+	}
  }
  
 });
+
+function isVowel(char) {
+  return "aeiou".includes(char);
+}
 
 function arraySelect(array) {
     return array[Math.round((Math.random()*(array.length)))];
