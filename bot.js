@@ -134,7 +134,7 @@ function image(message, search) {
         }
  
         // Send result
-		message.channel.send(search, {files: urls[0]}).then(console.log).catch(console.error);
+		message.channel.send(search, {files: [urls[0]]}).then(console.log).catch(console.error);
     });
 }
 
