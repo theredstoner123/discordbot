@@ -135,12 +135,15 @@ function image(message, search) {
 		
 		var finalLink = urls[0];
 		
-		if(finalLink.indexOf(".jpg") !== -1) finalLink = finalLink.substring(0, indexOf(".jpg") + 4);
-		else if(finalLink.indexOf(".JPG") !== -1) finalLink = finalLink.substring(0, indexOf(".JPG") + 4);
-		else if(finalLink.indexOf(".png") !== -1) finalLink = finalLink.substring(0, indexOf(".jpg") + 4);
-		else if(finalLink.indexOf(".PNG") !== -1) finalLink = finalLink.substring(0, indexOf(".PNG") + 4);
-		else if(finalLink.indexOf(".gif") !== -1) finalLink = finalLink.substring(0, indexOf(".gif") + 4);
-		else if(finalLink.indexOf(".GIF") !== -1) finalLink = finalLink.substring(0, indexOf(".GIF") + 4);
+		if(finalLink.indexOf(".jpg") !== -1) finalLink = finalLink.substring(0, finalLink.(".jpg") + 4);
+		else if(finalLink.indexOf(".JPG") !== -1) finalLink = finalLink.substring(0, finalLink.indexOf(".JPG") + 4);
+		else if(finalLink.indexOf(".png") !== -1) finalLink = finalLink.substring(0, finalLink.indexOf(".jpg") + 4);
+		else if(finalLink.indexOf(".PNG") !== -1) finalLink = finalLink.substring(0, finalLink.indexOf(".PNG") + 4);
+		else if(finalLink.indexOf(".gif") !== -1) finalLink = finalLink.substring(0, finalLink.indexOf(".gif") + 4);
+		else if(finalLink.indexOf(".GIF") !== -1) finalLink = finalLink.substring(0, finalLink.indexOf(".GIF") + 4);
+		else if(finalLink.indexOf(".jpeg") !== -1) finalLink = finalLink.substring(0, finalLink.indexOf(".jpeg") + 5);
+		else if(finalLink.indexOf(".JPEG") !== -1) finalLink = finalLink.substring(0, finalLink.indexOf(".JPEG") + 5);
+		
  
         // Send result
 		message.channel.send(search, {files: [finalLink]}).catch(console.error);
