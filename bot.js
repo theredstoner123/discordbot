@@ -56,13 +56,17 @@ client.on("message", message => {
 		var response = "";
 		for (var i = 0; i < string.length; i++) 
 		{
-			if (!isVowel(string[i])) 
+			if (isLowercaseVowel(string[i])) 
 			{
-				response += string[i];
+				response += "aeiou"[Math.round((Math.random()*4))];
+			}
+			else if (isUppercaseVowel(string[i])) 
+			{
+				response += "AEIOU"[Math.round((Math.random()*4))];
 			}
 			else
 			{
-				response += "AEIOUaeiou"[Math.round((Math.random()*9))];
+				response += string[i];
 			}
 		}
 		message.channel.send(response);
@@ -71,8 +75,12 @@ client.on("message", message => {
  
 });
 
-function isVowel(char) {
-  return "AEIOUaeiou".includes(char);
+function isLowercaseVowel(char) {
+  return "aeiou".includes(char);
+}
+
+function isUppercaseVowel(char) {
+  return "AEIOU".includes(char);
 }
 
 function arraySelect(array) {
