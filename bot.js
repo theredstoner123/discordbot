@@ -9,20 +9,17 @@ client.login(process.env.BOT_TOKEN);
 var enabled = true;
 
 
-client.user.setStatus('available')
-client.user.setPresence({
-	game: {
-		name: 'with depression',
-		type: "STREAMING",
-		url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-	}
-});
-
-
 client.on("ready", () => {
-
-    console.log("Ready");
-
+	client.user.setStatus('available');
+	client.user.setPresence({
+		game: {
+			name: 'with depression',
+			type: "STREAMING",
+			url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+		}
+	});
+	
+	console.log("Ready");
 });
 
  
