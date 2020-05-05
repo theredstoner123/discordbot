@@ -4,16 +4,19 @@ const cheerio = require("cheerio");
 const request = require("request");
 
 
+client.login(process.env.BOT_TOKEN);
+
 var enabled = true;
 
 
-client.user.setPresence({
-        status: "online",  //You can show online, idle....
-        game: {
-            name: "Big Boy",  //The message shown
-            type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
-        }
-    });
+bot.user.setStatus('available')
+bot.user.setPresence({
+	game: {
+		name: 'with depression',
+		type: "STREAMING",
+		url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+	}
+});
 
 
 client.on("ready", () => {
@@ -153,7 +156,3 @@ function image(message, search) {
 		message.channel.send(search, {files: [finalLink]}).catch(console.error);
     });
 }
-
-// THIS  MUST  BE  THIS  WAY
-
-client.login(process.env.BOT_TOKEN);
