@@ -22,7 +22,7 @@ client.on("ready", () => {
 	console.log("Ready");
 });
 
- 
+
 
 client.on("message", message => {
  
@@ -32,11 +32,13 @@ client.on("message", message => {
      {
         enabled = false;
         message.channel.send("off");
+		message.channel.stopTyping();
      }
      else if(message.content === "on" && message.author.id === "338510413807353866")
      {
         enabled = true;
         message.channel.send("on");
+		message.channel.stopTyping();
      }
   
  }
@@ -45,24 +47,36 @@ client.on("message", message => {
     {
        if(/\d{1}[%](.*?)/.test(message))
 		{
-		   var percentage = message.content.substring(0, message.content.indexOf("%"));
-		   var percentNum = parseInt(percentage);
+			message.channel.startTyping();
+			var percentage = message.content.substring(0, message.content.indexOf("%"));
+			var percentNum = parseInt(percentage);
 		   
 			if(percentNum === 69)
+			{
 			   message.channel.send("69%? nice.");
+			   message.channel.stopTyping();
+			}
 			else if(percentNum < 50)
-				message.channel.send(percentageSelect(percentage, [	"{p}? you hella lowballin", 
-																	"bro look at him no way he only {p} cappin",
-																	"{p}? u cappin."
-																	]));
+			{
+				message.channel.send(percentageSelect("{p}", percentage + "%", 
+				["{p}? you hella lowballin",
+				"bro look at him no way he only {p} cappin",
+				"{p}? u cappin."]));
+				message.channel.stopTyping();
+			}
 			else 
+			{
 				message.channel.send("nah");
+				message.channel.stopTyping();
+			}
 		}
     }
 	
     if (message.author.id === "707046570335535134")//assi
     {
-		message.channel.send("nah nigga");
+		message.channel.startTyping();
+		message.channel.send("boo nigga");
+		message.channel.stopTyping();
     }
 	
 	if (!message.author.bot && Math.random() < 1.00)
@@ -87,7 +101,6 @@ client.on("message", message => {
 		}
 		//message.channel.send(response);
 		image(message, response);
-		message.channel.stopTyping();
 	}
  }
  
@@ -97,16 +110,16 @@ function arraySelect(array) {
     return array[Math.round((Math.random()*(array.length)))];
 }
 
-function percentageSelect(percent, responses) {
+function percentageSelect(delim, arg, responses) {
     var result = "";
 	var selected;
 	
 	selected = responses[Math.round(Math.random()*(responses.length - 1))];
-	var array = selected.split("{p}");
+	var array = selected.split(delim);
 	result += array[0];
 	for(var i = 1; i < array.length; i++)
 	{
-		result += percent + "%";
+		result += arg + "%";
 		result += array[i];
 	}
 	
@@ -142,6 +155,7 @@ function image(message, search) {
         
         if (!urls.length) {
             message.channel.send(search);
+			message.channel.stopTyping();
 			console.log(search + ":\tno link" );
             return;
         }
@@ -153,5 +167,6 @@ function image(message, search) {
 		// Send result
 		console.log(search + ":\t" + finalLink);
 		message.channel.send(search, {files: [finalLink]}).catch(console.error);
+		message.channel.stopTyping();
     });
 }
