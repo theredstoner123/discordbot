@@ -9,8 +9,8 @@ client.login(process.env.BOT_TOKEN);
 var enabled = true;
 
 
-bot.user.setStatus('available')
-bot.user.setPresence({
+client.user.setStatus('available')
+client.user.setPresence({
 	game: {
 		name: 'with depression',
 		type: "STREAMING",
