@@ -13,14 +13,14 @@ client.on("ready", () => {
 
 client.on("message", message => {
  
- if(message.channel.type === "dm" && message.author.id === "338510413807353866")
+ if(message.channel.type === "dm")
  {
-     if(message.content === "off")
+     if(message.content === "off" && message.author.id === "338510413807353866")
      {
         enabled = false;
         message.channel.send("off");
      }
-     else if(message.content === "on")
+     else if(message.content === "on" && message.author.id === "338510413807353866")
      {
         enabled = true;
         message.channel.send("on");
