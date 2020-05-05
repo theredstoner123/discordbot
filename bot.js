@@ -132,9 +132,18 @@ function image(message, search) {
             message.channel.send(search);
             return;
         }
+		
+		var finalLink = urls[0];
+		
+		if(finalLink.indexOf(".jpg") !== -1) finalLink = finalLink.substring(0, indexOf(".jpg") + 4);
+		else if(finalLink.indexOf(".JPG") !== -1) finalLink = finalLink.substring(0, indexOf(".JPG") + 4);
+		else if(finalLink.indexOf(".png") !== -1) finalLink = finalLink.substring(0, indexOf(".jpg") + 4);
+		else if(finalLink.indexOf(".PNG") !== -1) finalLink = finalLink.substring(0, indexOf(".PNG") + 4);
+		else if(finalLink.indexOf(".gif") !== -1) finalLink = finalLink.substring(0, indexOf(".gif") + 4);
+		else if(finalLink.indexOf(".GIF") !== -1) finalLink = finalLink.substring(0, indexOf(".GIF") + 4);
  
         // Send result
-		message.channel.send(search, {files: [urls[0]]}).catch(console.error);
+		message.channel.send(search, {files: [finalLink]}).catch(console.error);
     });
 }
 
