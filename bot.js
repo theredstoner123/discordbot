@@ -13,7 +13,7 @@ client.on("ready", () => {
 
 client.on("message", message => {
  
- if(message.author.id === "338510413807353866")
+ if(message.channel.type === "dm" && message.author.id === "338510413807353866")
  {
      if(message.content === "off")
      {
