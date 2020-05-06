@@ -2,7 +2,7 @@ const { Client, MessageAttachment } = require("discord.js");
 const client = new Client();
 const cheerio = require("cheerio");
 const request = require("request");
-
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 client.login(process.env.BOT_TOKEN);
 
