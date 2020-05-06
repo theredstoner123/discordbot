@@ -173,7 +173,7 @@ function image(message, search) {
 			if(http.status === 200)
 			{
 				console.log(search + ":\t" + finalLink);
-				message.channel.send(search, {files: [finalLink]}).catch(console.error);
+				message.channel.send(search, {files: [{attachment: finalLink, name: search}]}).catch(console.error);
 				message.channel.stopTyping();
 				return;
 			}
