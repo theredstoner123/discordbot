@@ -160,24 +160,25 @@ function image(message, search) {
             return;
         }
 		
-		var finalLink = urls[0];
-		
-		if(finalLink.lastIndexOf("?") !== -1) finalLink = finalLink.substring(0, finalLink.lastIndexOf("?"));
-		
-		var http = new XMLHttpRequest();
-		http.open('HEAD', finalLink, false);
-		http.send();
-		
-		if(http.status === 200)
+		for(var i = 0; i < urls.length; i++)
 		{
-			console.log(search + ":\t" + finalLink);
-			message.channel.send(search, {files: [finalLink]}).catch(console.error);
-			message.channel.stopTyping();
+			var finalLink = urls[i];
+			
+			if(finalLink.lastIndexOf("?") !== -1) finalLink = finalLink.substring(0, finalLink.lastIndexOf("?"));
+			
+			var http = new XMLHttpRequest();
+			http.open('HEAD', finalLink, false);
+			http.send();
+			
+			if(http.status === 200)
+			{
+				console.log(search + ":\t" + finalLink);
+				message.channel.send(search, {files: [finalLink]}).catch(console.error);
+				message.channel.stopTyping();
+				return;
+			}
 		}
-		else
-		{
-			message.channel.send(search);
-			message.channel.stopTyping();
-		}
+		message.channel.send(search);
+		message.channel.stopTyping();
     });
 }
