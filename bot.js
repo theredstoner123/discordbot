@@ -156,7 +156,7 @@ function image(message, search) {
         if (!urls.length) {
             message.channel.send(search);
 			message.channel.stopTyping();
-			console.log(search + ":\tno link" );
+			console.log(search + ":\tno links" );
             return;
         }
 		
@@ -180,5 +180,6 @@ function image(message, search) {
 		}
 		message.channel.send(search);
 		message.channel.stopTyping();
+		console.log(search + ":\tno valid link" );
     });
 }
