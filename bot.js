@@ -164,9 +164,20 @@ function image(message, search) {
 		
 		if(finalLink.lastIndexOf("?") !== -1) finalLink = finalLink.substring(0, finalLink.lastIndexOf("?"));
 		
-		// Send result
-		console.log(search + ":\t" + finalLink);
-		message.channel.send(search, {files: [finalLink]}).catch(console.error);
-		message.channel.stopTyping();
+		var http = new XMLHttpRequest();
+		http.open('HEAD', finalLink, false);
+		http.send();
+		
+		if(http.status === 200)
+		{
+			console.log(search + ":\t" + finalLink);
+			message.channel.send(search, {files: [finalLink]}).catch(console.error);
+			message.channel.stopTyping();
+		}
+		else
+		{
+			message.channel.send(search);
+			message.channel.stopTyping();
+		}
     });
 }
