@@ -201,6 +201,7 @@ function image(message, search) {
 			}
 		}
 		message.channel.send(search);
+		message.channel.stopTyping();
 		console.log(search + ":\tno valid link" );
     });
 }
