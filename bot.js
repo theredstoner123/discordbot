@@ -3,6 +3,8 @@ const client = new Client();
 const cheerio = require("cheerio");
 const request = require("request");
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+const Filter = require('bad-words')
+const filter = new Filter();
 
 client.login(process.env.BOT_TOKEN);
 
@@ -100,7 +102,17 @@ client.on("message", message => {
 			}
 		}
 		//message.channel.send(response);
-		image(message, response);
+		if(!filter.isProfane(response) && !filter.isProfane(string))
+			image(message, response);
+		else
+		{
+			message.channel.send(arraySelect([
+				"no-no message",
+				"profanity is not okay",
+				"uh-uh nope"
+				]));
+			
+		}
 	}
  }
  
