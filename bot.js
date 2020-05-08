@@ -199,7 +199,7 @@ function image(message, search) {
 			if(http.status === 200)
 			{
 				console.log(search + ":\t" + finalLink);
-				message.channel.send(search, {files: [{attachment: finalLink, name: search + finalLink.substring(finalLink.lastIndexOf("."), finalLink.length)}]}).catch(console.error).then((function (message) {message.react("❌")});
+				message.channel.send(search, {files: [{attachment: finalLink, name: search + finalLink.substring(finalLink.lastIndexOf("."), finalLink.length)}]}).catch(console.error).then(function (message) {message.react("❌")});
 				message.channel.stopTyping();
 				return;
 			}
