@@ -38,12 +38,14 @@ client.on("message", message => {
      if(message.content === "off" && message.author.id === "338510413807353866")
      {
         enabled = false;
+		message.channel.startTyping();
         message.channel.send("off");
 		message.channel.stopTyping();
      }
      else if(message.content === "on" && message.author.id === "338510413807353866")
      {
         enabled = true;
+		message.channel.startTyping();
         message.channel.send("on");
 		message.channel.stopTyping();
      }
@@ -116,8 +118,8 @@ client.on("message", message => {
 				"profanity is not okay",
 				"uh-uh nope"
 				]));
-			message.channel.stopTyping();
 		}
+		message.channel.stopTyping();
 	}
  }
  
