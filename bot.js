@@ -111,7 +111,7 @@ client.on("message", message => {
 				"profanity is not okay",
 				"uh-uh nope"
 				]));
-			
+			message.channel.stopTyping();
 		}
 	}
  }
