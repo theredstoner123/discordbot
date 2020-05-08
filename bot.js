@@ -49,7 +49,7 @@ client.on("message", message => {
 		}
 	  
 	}
-	 else if(enabled === true){
+	else if(enabled === true){
 		if (message.author.id === "689560562513739957")//issa
 		{
 		   if(/\d{1}[%](.*?)/.test(message))
@@ -123,6 +123,8 @@ client.on("message", message => {
 			}
 		}
 	}
+	else if(message.author.id === client.user.id)
+		message.channel.stopTyping();
 });
 
 
@@ -199,7 +201,7 @@ function image(message, search) {
 			if(http.status === 200)
 			{
 				console.log(search + ":\t" + finalLink);
-				message.channel.send(search, {files: [{attachment: finalLink, name: search + finalLink.substring(finalLink.lastIndexOf("."), finalLink.length)}]}).catch(console.error).then(function (message) {message.react("❌")});
+				message.channel.send(search, {files: [{attachment: finalLink, name: search + finalLink.substring(finalLink.lastIndexOf("."), finalLink.length)}]}).catch(console.error);
 				message.channel.stopTyping();
 				return;
 			}
