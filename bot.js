@@ -110,7 +110,10 @@ client.on("message", message => {
 		}
 		
 		if(!filter.isProfane(response) && !filter.isProfane(string))
+		{
 			image(message, response);
+			message.channel.stopTyping();
+		}
 		else
 		{
 			message.channel.send(arraySelect([
@@ -118,8 +121,8 @@ client.on("message", message => {
 				"profanity is not okay",
 				"uh-uh nope"
 				]));
+			message.channel.stopTyping();
 		}
-		message.channel.stopTyping();
 	}
  }
  
@@ -198,7 +201,6 @@ function image(message, search) {
 			}
 		}
 		message.channel.send(search);
-		message.channel.stopTyping();
 		console.log(search + ":\tno valid link" );
     });
 }
