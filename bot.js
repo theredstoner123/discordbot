@@ -117,7 +117,7 @@ client.on("message", message => {
 				"no-no message",
 				"profanity is not okay",
 				"uh-uh nope"
-				]));
+				]);
 			message.channel.send(noresponse)
 			message.channel.stopTyping();
 		}
