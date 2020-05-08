@@ -127,7 +127,7 @@ client.on("message", message => {
 
 
 client.on('messageReactionAdd', async (reaction, user) => {
-	if(reaction.message.author.id === "706625234869944361" && reaction.client.id === "338510413807353866" && reaction.emoji.name === "❌")
+	if(reaction.message.author.id === "706625234869944361" && user.id === "338510413807353866" && reaction.emoji.name === "❌")
 		reaction.message.edit("");
 });
 
