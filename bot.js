@@ -38,14 +38,12 @@ client.on("message", message => {
      if(message.content === "off" && message.author.id === "338510413807353866")
      {
         enabled = false;
-		message.channel.startTyping();
         message.channel.send("off");
 		message.channel.stopTyping();
      }
      else if(message.content === "on" && message.author.id === "338510413807353866")
      {
         enabled = true;
-		message.channel.startTyping();
         message.channel.send("on");
 		message.channel.stopTyping();
      }
@@ -90,6 +88,7 @@ client.on("message", message => {
 	
 	if (!message.author.bot && Math.random() < 1.00)
 	{
+		message.channel.startTyping();
 		var string = message.content;
 		var response = "";
 		for (var i = 0; i < string.length; i++) 
@@ -110,17 +109,16 @@ client.on("message", message => {
 		
 		if(!filter.isProfane(response) && !filter.isProfane(string))
 		{
-			message.channel.startTyping();
 			image(message, response);
 		}
 		else
 		{
-			message.channel.startTyping();
-			message.channel.send(arraySelect([
+			var noresponse = arraySelect([
 				"no-no message",
 				"profanity is not okay",
 				"uh-uh nope"
 				]));
+			message.channel.send(noresponse)
 			message.channel.stopTyping();
 		}
 	}
