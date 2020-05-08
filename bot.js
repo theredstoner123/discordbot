@@ -8,6 +8,11 @@ const filter = new Filter();
 
 client.login(process.env.BOT_TOKEN);
 
+
+var newBadWords = ["prolapse"];
+filter.addWords(...newBadWords);
+
+
 var enabled = true;
 
 
@@ -101,7 +106,7 @@ client.on("message", message => {
 				response += string[i];
 			}
 		}
-		//message.channel.send(response);
+		
 		if(!filter.isProfane(response) && !filter.isProfane(string))
 			image(message, response);
 		else
