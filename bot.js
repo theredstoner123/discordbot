@@ -91,6 +91,7 @@ client.on("message", message => {
 	if (!message.author.bot && Math.random() < 1.00)
 	{
 		message.channel.startTyping();
+		console.log("1");
 		var string = message.content;
 		var response = "";
 		for (var i = 0; i < string.length; i++) 
@@ -113,6 +114,7 @@ client.on("message", message => {
 		{
 			image(message, response);
 			message.channel.stopTyping();
+			console.log("-2");
 		}
 		else
 		{
@@ -122,6 +124,7 @@ client.on("message", message => {
 				"uh-uh nope"
 				]));
 			message.channel.stopTyping();
+			console.log("-3");
 		}
 	}
  }
