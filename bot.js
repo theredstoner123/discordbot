@@ -33,98 +33,104 @@ client.on("ready", () => {
 
 client.on("message", message => {
  
- if(message.channel.type === "dm")
- {
-     if(message.content === "off" && message.author.id === "338510413807353866")
-     {
-        enabled = false;
-        message.channel.send("off");
-		message.channel.stopTyping();
-     }
-     else if(message.content === "on" && message.author.id === "338510413807353866")
-     {
-        enabled = true;
-        message.channel.send("on");
-		message.channel.stopTyping();
-     }
-  
- }
- else if(enabled === true){
-    if (message.author.id === "689560562513739957")//issa
-    {
-       if(/\d{1}[%](.*?)/.test(message))
-		{
-			message.channel.startTyping();
-			var percentage = message.content.substring(0, message.content.indexOf("%"));
-			var percentNum = parseInt(percentage);
-		   
-			if(percentNum === 69)
-			{
-			   message.channel.send("69%? nice.");
-			   message.channel.stopTyping();
-			}
-			else if(percentNum < 50)
-			{
-				message.channel.send(responseSelect("{p}", percentage + "%", 
-				["{p}? you hella lowballin",
-				"bro look at him no way he only {p} cappin",
-				"{p}? u cappin."]));
-				message.channel.stopTyping();
-			}
-			else 
-			{
-				message.channel.send("nah");
-				message.channel.stopTyping();
-			}
-		}
-    }
-	
-    if (message.author.id === "707046570335535134")//assi
-    {
-		message.channel.startTyping();
-		message.channel.send("boo nigga");
-		message.channel.stopTyping();
-    }
-	
-	if (!message.author.bot && Math.random() < 1.00)
+	if(message.channel.type === "dm")
 	{
-		message.channel.startTyping();
-		var string = message.content;
-		var response = "";
-		for (var i = 0; i < string.length; i++) 
+		if(message.content === "off" && message.author.id === "338510413807353866")
 		{
-			if ("aeiou".includes(string[i])) 
+			enabled = false;
+			message.channel.send("off");
+			message.channel.stopTyping();
+		}
+		else if(message.content === "on" && message.author.id === "338510413807353866")
+		{
+			enabled = true;
+			message.channel.send("on");
+			message.channel.stopTyping();
+		}
+	  
+	}
+	 else if(enabled === true){
+		if (message.author.id === "689560562513739957")//issa
+		{
+		   if(/\d{1}[%](.*?)/.test(message))
 			{
-				response += "aeiou"[Math.round((Math.random()*4))];
-			}
-			else if ("AEIOU".includes(string[i])) 
-			{
-				response += "AEIOU"[Math.round((Math.random()*4))];
-			}
-			else
-			{
-				response += string[i];
+				message.channel.startTyping();
+				var percentage = message.content.substring(0, message.content.indexOf("%"));
+				var percentNum = parseInt(percentage);
+			   
+				if(percentNum === 69)
+				{
+				   message.channel.send("69%? nice.");
+				   message.channel.stopTyping();
+				}
+				else if(percentNum < 50)
+				{
+					message.channel.send(responseSelect("{p}", percentage + "%", 
+					["{p}? you hella lowballin",
+					"bro look at him no way he only {p} cappin",
+					"{p}? u cappin."]));
+					message.channel.stopTyping();
+				}
+				else 
+				{
+					message.channel.send("nah");
+					message.channel.stopTyping();
+				}
 			}
 		}
 		
-		if(!filter.isProfane(response) && !filter.isProfane(string))
+		if (message.author.id === "707046570335535134")//assi
 		{
-			image(message, response);
-		}
-		else
-		{
-			var noresponse = arraySelect([
-				"no-no message",
-				"profanity is not okay",
-				"uh-uh nope"
-				]);
-			message.channel.send(noresponse)
+			message.channel.startTyping();
+			message.channel.send("boo nigga");
 			message.channel.stopTyping();
 		}
+		
+		if (!message.author.bot && Math.random() < 1.00)
+		{
+			message.channel.startTyping();
+			var string = message.content;
+			var response = "";
+			for (var i = 0; i < string.length; i++) 
+			{
+				if ("aeiou".includes(string[i])) 
+				{
+					response += "aeiou"[Math.round((Math.random()*4))];
+				}
+				else if ("AEIOU".includes(string[i])) 
+				{
+					response += "AEIOU"[Math.round((Math.random()*4))];
+				}
+				else
+				{
+					response += string[i];
+				}
+			}
+			
+			if(!filter.isProfane(response) && !filter.isProfane(string))
+			{
+				image(message, response);
+			}
+			else
+			{
+				var noresponse = arraySelect([
+					"no-no message",
+					"profanity is not okay",
+					"uh-uh nope"
+					]);
+				message.channel.send(noresponse)
+				message.channel.stopTyping();
+			}
+		}
 	}
- }
- 
 });
+
+
+client.on('messageReactionAdd', async (reaction, user) => {
+	if(reaction.message.author.id === "706625234869944361" && reaction.client.id === "338510413807353866" && reaction.emoji.name === "❌")
+		reaction.message.edit("");
+});
+
 
 function arraySelect(array) {
     return array[Math.round(Math.random()*(array.length - 1))];
@@ -193,7 +199,7 @@ function image(message, search) {
 			if(http.status === 200)
 			{
 				console.log(search + ":\t" + finalLink);
-				message.channel.send(search, {files: [{attachment: finalLink, name: search + finalLink.substring(finalLink.lastIndexOf("."), finalLink.length)}]}).catch(console.error);
+				message.channel.send(search, {files: [{attachment: finalLink, name: search + finalLink.substring(finalLink.lastIndexOf("."), finalLink.length)}]}).catch(console.error).then((function (message) {message.react("❌")});
 				message.channel.stopTyping();
 				return;
 			}
