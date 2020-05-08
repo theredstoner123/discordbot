@@ -90,8 +90,6 @@ client.on("message", message => {
 	
 	if (!message.author.bot && Math.random() < 1.00)
 	{
-		message.channel.startTyping();
-		console.log("1");
 		var string = message.content;
 		var response = "";
 		for (var i = 0; i < string.length; i++) 
@@ -112,19 +110,18 @@ client.on("message", message => {
 		
 		if(!filter.isProfane(response) && !filter.isProfane(string))
 		{
+			message.channel.startTyping();
 			image(message, response);
-			message.channel.stopTyping();
-			console.log("-2");
 		}
 		else
 		{
+			message.channel.startTyping();
 			message.channel.send(arraySelect([
 				"no-no message",
 				"profanity is not okay",
 				"uh-uh nope"
 				]));
 			message.channel.stopTyping();
-			console.log("-3");
 		}
 	}
  }
