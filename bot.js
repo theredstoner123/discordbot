@@ -123,8 +123,6 @@ client.on("message", message => {
 			}
 		}
 	}
-	else if(message.author.id === client.user.id)
-		message.channel.stopTyping();
 });
 
 
