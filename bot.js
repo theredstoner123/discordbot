@@ -120,6 +120,7 @@ client.on("message", message => {
 					]);
 				message.channel.send(noresponse)
 				message.channel.stopTyping();
+				console.log(response + ":\tno response")
 			}
 		}
 	}
