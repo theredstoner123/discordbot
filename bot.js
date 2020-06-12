@@ -83,6 +83,7 @@ client.on("message", message => {
 		{
 			message.channel.startTyping();
 			message.channel.send("boo nigga");
+			message.channel.send("My grandfather picks up quartz and valuable onyx jewels. Send 60 dozen quart jars and 12 black pans.");
 			message.channel.stopTyping();
 		}
 		
