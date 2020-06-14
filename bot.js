@@ -82,7 +82,7 @@ client.on("message", message => {
 		if (message.author.id === "707046570335535134")//assi
 		{
 			message.channel.startTyping();
-			message.channel.send("boo nigga <@311870635083038720> <@466873629812981781> <@466873629812981781>");
+			message.channel.send("boo nigga <@311870635083038720> <@466873629812981781> <@293112770931458048>");
 			message.channel.send("My grandfather picks up quartz and valuable onyx jewels. Send 60 dozen quart jars and 12 black pans.");
 			message.channel.stopTyping();
 		}
