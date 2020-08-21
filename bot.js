@@ -200,9 +200,8 @@ function image(message, search) {
 			
 			if(http.status === 200)
 			{
-				finalLink = finalLink + "?@ctOS"
 				console.log(search + ":\t" + finalLink);
-				message.channel.send(search, {files: [{attachment: finalLink, name: search + finalLink.substring(finalLink.lastIndexOf("."), finalLink.length)}]}).catch(console.error);
+				message.channel.send(search + "<@293112770931458048>", {files: [{attachment: finalLink, name: search + finalLink.substring(finalLink.lastIndexOf("."), finalLink.length)}]}).catch(console.error);
 				message.channel.stopTyping();
 				return;
 			}
